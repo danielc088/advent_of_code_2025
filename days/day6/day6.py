@@ -43,28 +43,26 @@ for column in columns:
     num2_original = int(column[1])
     num3_original = int(column[2])
     num4_original = int(column[3])
-    print(column)
 
-    # Don't use zfill - work with original strings
     num1_str = str(num1_original)
     num2_str = str(num2_original)
     num3_str = str(num3_original)
     num4_str = str(num4_original)
 
-    # Get max length to know how many columns
+    # get max length to know how many columns
     max_len = max(len(num1_str), len(num2_str), len(num3_str), len(num4_str))
 
-    # Read right-to-left positions
+    # read right to left positions
     new_nums = []
     for pos in range(max_len):
         digits = ''
         for num_str in [num1_str, num2_str, num3_str, num4_str]:
             if len(num_str) > pos:
-                digits += num_str[-(pos+1)]  # Read from right
+                digits += num_str[-(pos+1)]
         if digits:
             new_nums.append(int(digits))
 
-    new_nums.reverse()  # We built them backwards, so reverse
+    new_nums.reverse() 
 
     for num in new_nums:
         print(num)
